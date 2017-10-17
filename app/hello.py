@@ -7,7 +7,7 @@ client = MongoClient("mongodb://uoixnano1h7qpi5:gISr9fKfV19n4KePWd2U@bcro8hmrdqj
 
 app = Flask(__name__)
 
-db = client["football"]
+db = client["bcro8hmrdqj6mso"]
 
 
 def insertTeam():
