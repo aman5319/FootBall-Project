@@ -1,0 +1,9 @@
+{
+    "build": {
+        "folder": "app"
+    },
+    "deploy": {
+        "module": "wsgi:app",
+        "static": "/clevercloud/static/"
+    }
+}
