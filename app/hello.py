@@ -1,9 +1,9 @@
 from flask import Flask
+
 from pymongo import MongoClient
 
 
-client = MongoClient("mongodb://uoixnano1h7qpi5:gISr9fKfV19n4KePWd2U@bcro8hmrdqj6mso-mongodb.services.clever-cloud.com:27017/bcro8hmrdqj6mso
-")
+client = MongoClient("mongodb://uoixnano1h7qpi5:gISr9fKfV19n4KePWd2U@bcro8hmrdqj6mso-mongodb.services.clever-cloud.com:27017/bcro8hmrdqj6mso")
 
 app = Flask(__name__)
 
@@ -33,10 +33,13 @@ def insertTeam():
 def hello():
     return "Deployer"
 
-@app.route("/f"):
+@app.route("/f")
+def xyz():
 	return db.info.find({}).pretty()
 
-@app.route("/in"):
+@app.route("/in")
+def insert():
 	insertTeam()
+	return "insert"
 if __name__ == "__main__":
     app.run()
