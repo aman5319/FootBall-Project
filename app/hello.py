@@ -7,15 +7,15 @@ client = MongoClient(
     "mongodb://uoixnano1h7qpi5:gISr9fKfV19n4KePWd2U@bcro8hmrdqj6mso-mongodb.services.clever-cloud.com:27017/bcro8hmrdqj6mso")
 db = client["bcro8hmrdqj6mso"]
 
-application = Flask(__name__)
+app = Flask(__name__)
 
 
-@application.route("/")
+@app.route("/")
 def hello():
     return " depoyer"
 
 
-@application.route("/teamName/")
+@app.route("/teamName/")
 def teamInfo():
     list_of_all_team = []
     list_of_all_team.clear()
@@ -25,7 +25,7 @@ def teamInfo():
     return render_template("tempa.html", name_list=list_of_all_team)
 
 
-@application.route("/addTeam/", methods=["POST", "GET"])
+@app.route("/addTeam/", methods=["POST", "GET"])
 def addTeam():
     if request.method == 'POST':
         t = Team(request.form["teamName"])
@@ -45,7 +45,7 @@ def addTeam():
         return render_template("teamAddForm.html")
 
 
-@application.route("/editTeam/<string:teamName>/", methods=["GET", "POST"])
+@app.route("/editTeam/<string:teamName>/", methods=["GET", "POST"])
 def editTeam(teamName):
     if request.method == "GET":
         a = db.info.find_one({"teamName": teamName}, {"players": 0, "_id": 0, "fixture": 0})
@@ -67,4 +67,4 @@ def editTeam(teamName):
 
 
 if __name__ == "__main__":
-    application.run()
+    app.run()
