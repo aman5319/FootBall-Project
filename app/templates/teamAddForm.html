@@ -14,7 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
     </script>
 </head>
-<body background="{{ url_for('static', filename='wallpaper.jpg') }}">
+<body background="{{ url_for('static', filename='wallpaper2.jpg') }}">
 <div class="card-panel teal lighten-2 ">
     <h4><span style="color: #f0ffff;  "> ADD A NEW FOOTBALL TEAM</span></h4>
 </div>
@@ -37,7 +37,7 @@
                 <label for="squad_pic">Squad Picture Url</label>
             </div>
             <div class="input-field col s7">
-                <input id="team_founder" type="text" required name='founded'>
+                <input type="text" class="datepicker" required name='founded' id="team_founder">
                 <label for="team_logo">Founded On and By</label>
             </div>
         </div>
@@ -83,6 +83,15 @@
 background-color:teal;padding:5px ;text-align: center">
     </form>
 </div>
-
+<script>
+    $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false // Close upon selecting a date,
+  });
+</script>
 </body>
 </html>
