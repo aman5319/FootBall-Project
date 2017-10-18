@@ -2,43 +2,87 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Team Add</title>
-    <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="/app/templates/css/materialize.min.css" media="screen,projection"/>
+    <title>Edit Team</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    <script type="text/javascript"
+            src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+    </script>
 </head>
-<body>
-<form class="teamadd" action="" method="post">
+<body background="{{ url_for('static', filename='wallpaper.jpg') }}">
+<div class="card-panel teal lighten-2 ">
+    <h4><span style="color: #f0ffff;  "> EDIT <strong>{{teamInfo["teamName"]}}</strong> FOOTBALL TEAM</span></h4>
+</div>
 
-    <label>Enter Team logo url:- </label>
-    <input type ='url' size='30' name='teamLogo' value = '{{teamInfo["teamLogo"]}}' required><br><br>
-    <label>Enter Team squadpic url:- </label>
-    <input type ='url' size='30' name='squadPic' value = '{{teamInfo["squadPic"]}}' required><br><br>
-    <label>Enter Team founder and when founded details:- </label>
-    <input type ='text' size='30' name='founded' required value = '{{teamInfo["founded"]}}'><br><br>
-    <label>Enter Team home ground:- </label>
-    <input type ='text' size='30' name='homeGround' value = '{{teamInfo["homeGround"]}}' required><br><br>
-    <label>Enter Team cost:- </label>
-    <input type ='number' size='30' name='teamCost' value = '{{teamInfo["teamCost"]}}' required><br><br>
-    <label>Enter Team website:- </label>
-    <input type ='url' size='30' name='teamWebsite' value = '{{teamInfo["teamWebsite"]}}' required><br><br>
-    <label>Enter Team owner:- </label>
-    <input type ='text' size='30' name='teamOwner' value = '{{teamInfo["teamOwner"]}}' required><br><br>
-    <label>Enter Team teamcoach:- </label>
-    <input type ='text' size='30' name='teamCoach' value = '{{teamInfo["teamCoach"]}}' required><br><br>
-    <label>Enter Team sponser:- </label>
-    <input type ='text' size='30' name='teamSponsor' value = '{{teamInfo["teamSponsor"]}}' required><br><br>
-    <label>Enter Team country:- </label>
-    <input type ='text' size='30' name='country' value = '{{teamInfo["country"]}}' required><br><br>
-    <input type="submit" value="Submit">
+<div class="row" style="color: azure; font-size: large">
+    <form class="col s12" action="" method="post">
+        <div class="row">
+            <div class="input-field col s5" >
+                <input id="team_name" type="text" required name='teamName' value='{{teamInfo["teamName"]}}' readonly>
+                <label for="team_name">Team Name       (Read Only)</label>
+            </div>
+            <div class="input-field col s7">
+                <input id="team_logo" type="url" required name='teamLogo' value = '{{teamInfo["teamLogo"]}}'>
+                <label for="team_logo">Team Logo Url</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s5">
+                <input id="squad_pic" type="url" required name='squadPic'  value = '{{teamInfo["squadPic"]}}'>
+                <label for="squad_pic">Squad Picture Url</label>
+            </div>
+            <div class="input-field col s7">
+                <input id="team_founder" type="text" required name='founded' value = '{{teamInfo["founded"]}}'>
+                <label for="team_logo">Founded On and By</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s5">
+                <input id="home_ground" type="text" required name='homeGround'  value = '{{teamInfo["homeGround"]}}'>
+                <label for="home_ground">Home Ground</label>
+            </div>
+            <div class="input-field col s7">
+                <input id="team_cost" type="number" required name='teamCost'  value = '{{teamInfo["teamCost"]}}'>
+                <label for="team_cost">Team Cost</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s5">
+                <input id="team_website" type="url" required name='teamWebsite'  value = '{{teamInfo["teamWebsite"]}}'>
+                <label for="team_website">Team Website</label>
+            </div>
+            <div class="input-field col s7">
+                <input id="team_owner" type="text" required name='teamOwner' value = '{{teamInfo["teamOwner"]}}'>
+                <label for="team_owner">Team Owner</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s5">
+                <input id="team_coach" type="text" required name='teamCoach' value = '{{teamInfo["teamCoach"]}}'>
+                <label for="team_coach">Team Coach</label>
+            </div>
+            <div class="input-field col s7">
+                <input id="team_sponsor" type="text" required name='teamSponsor' value = '{{teamInfo["teamSponsor"]}}'>
+                <label for="team_sponsor">Team Sponsor</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s5">
+                <input id="country" type="text" required name='country' value = '{{teamInfo["country"]}}' >
+                <label for="country">Country</label>
+            </div>
+        </div>
 
-<!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      <script type="text/javascript" src="/app/templates/js/materialize.min.js"></script>
-</form>
+        <input type="submit" value=" Submit "
+               style="font-size:20pt;margin-left: 45%;
+background-color:teal;padding:5px ;text-align: center">
+    </form>
+</div>
+
 </body>
 </html>
