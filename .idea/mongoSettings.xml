@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MongoConfiguration">
+    <option name="serverConfigurations">
+      <list>
+        <ServerConfiguration>
+          <option name="authenticationDatabase" value="bcro8hmrdqj6mso" />
+          <option name="authenticationMechanism" value="MONGODB-CR" />
+          <option name="connectOnIdeStartup" value="true" />
+          <option name="label" value="cloudclever" />
+          <option name="password" value="gISr9fKfV19n4KePWd2U" />
+          <option name="serverUrls">
+            <list>
+              <option value="bcro8hmrdqj6mso-mongodb.services.clever-cloud.com:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="bcro8hmrdqj6mso" />
+          <option name="username" value="uoixnano1h7qpi5" />
+        </ServerConfiguration>
+      </list>
+    </option>
+  </component>
+</project>
