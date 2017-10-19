@@ -10,19 +10,24 @@ db = client["bcro8hmrdqj6mso"]
 app = Flask(__name__)
 
 
-@app.route("/")
+@app.route("/test")
 def hello():
     return " depoyer"
 
 
-@app.route("/teamName/")
+@app.route("/")
 def teamInfo():
     list_of_all_team = []
     list_of_all_team.clear()
     a = db.info.find({}, {"_id": 0, "teamName": 1})
     for b in a:
         list_of_all_team.append(b["teamName"])
-    return render_template("tempa.html", name_list=list_of_all_team)
+    return render_template("index.html", name_list=list_of_all_team)
+
+
+@app.route("/showTeam/")
+def showTeam():
+    return render_template("team.html")
 
 
 @app.route("/addTeam/", methods=["POST", "GET"])
@@ -68,3 +73,4 @@ def editTeam(teamName):
 
 if __name__ == "__main__":
     app.run()
+    #app.run(host="127.0.0.1", port=5000 , debug=True)

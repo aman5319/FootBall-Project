@@ -10,33 +10,34 @@
 </head>
 <body>
 
-<div class="slider" >
+<div class="slider">
 
     <ul class="slides">
 
         <li>
-            <img src="../static/slider1.jpg"> <!-- random image -->
+            <img src="{{url_for('static' ,filename='slider1.jpg')}}"> <!-- random image -->
             <div class="caption center-align">
             </div>
         </li>
         <li>
-            <img src="../static/slider3.jpg">
+            <img src="{{url_for('static' ,filename='slider3.jpg')}}">
             <!-- random image -->
             <div class="caption left-align">
 
             </div>
         </li>
         <li>
-            <img src="../static/slider2.jpg">
+            <img src="{{url_for('static' ,filename='slider2.jpg')}}">
             <!-- random image -->
             <div class="caption right-align">
             </div>
         </li>
         <li>
-            <img src="../static/slider4.jpg">
+            <img src="{{url_for('static' ,filename='slider4.jpg')}}">
             <!-- random image -->
             <div class="caption center-align">
-                <h4>Give a man a soccer ball, he plays for a moment. Teach a man to play soccer, he plays for a life time.</h4>
+                <h4>Give a man a soccer ball, he plays for a moment. Teach a man to play soccer, he plays for a life
+                    time.</h4>
 
             </div>
         </li>
@@ -55,21 +56,20 @@
                     <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4">Premier League<i
                             class="material-icons right">more_vert</i></span>
-                        <p><a href="#">Click for team info</a></p>
+                        <p><a href="{{url_for('showTeam')}}">Click for team info</a></p>
                     </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Card Title<i
+                    <div class="card-reveal" style="background: #9e9e9e">
+                        <span class="card-title grey-text text-darken-4"><h4
+                                style="font-style: italic">Team Playing</h4><i
                                 class="material-icons right">close</i></span>
-
-                        <p>This is premier league is a sweden.</p>
-                        <p>Team Info</p>
+                        <br>
                         <ul>
-                            <li><h4>Real Madrid</h4></li>
-                            <li><h4>Real Madrid</h4></li>
-                            <li><h4>Real Madrid</h4></li>
-                            <li><h4>Real Madrid</h4></li>
-                            <li><h4>Real Madrid</h4></li>
+                            {% for b in name_list %}
 
+                            <li><h4 style="font-style: italic;color: azure" >{{b}}</h4></li>
+
+
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
