@@ -27,7 +27,7 @@ def teamInfo():
 
 @app.route("/showTeam/")
 def showTeam():
-    return render_template("team.html")
+    return render_template("allTeam.html")
 
 
 @app.route("/addTeam/", methods=["POST", "GET"])
@@ -85,6 +85,16 @@ def feedback():
         return redirect(url_for("teamInfo"))
     elif request.method == "GET":
         return render_template("feedback.html")
+
+
+@app.route("/matchFixture", methods=["GET", "POST"])
+def matchFixture():
+    return render_template("matchFixture.html")
+
+
+@app.route("/topTeam")
+def topTeam():
+    return render_template("topTeam.html")
 
 
 if __name__ == "__main__":
