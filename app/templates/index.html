@@ -11,21 +11,24 @@
 <body>
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">Aman Pandey</a></li>
-  <li><a href="#!">Aniket Kumar Singh</a></li>
-  <li><a href="#!">Kali Kiran Kumar K</a></li>
-  <li><a href="#!">Maneesh V Kumar</a></li>
+    <li><a href="https://github.com/aman5319/" target="_blank">Aman Kumar Pandey</a></li>
+    <li><a href="#">Aniket Kumar Singh</a></li>
+    <li><a href="https://github.com/keepcalmncode"  target="_blank">Kali Kiran Kumar K</a></li>
+    <li><a href="#">Maneesh V Kumar</a></li>
 </ul>
 <nav>
-  <div class="nav-wrapper blue darken-3">
-    <a href="#!" class="brand-logo">Football Database Management System</a>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="content.html">Content</a></li>
-      <li><a href="feedback.html">Feedback</a></li>
-      <!-- Dropdown Trigger -->
-      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Team Members<i class="material-icons right">arrow_drop_down</i></a></li>
-    </ul>
-  </div>
+    <div class="nav-wrapper green darken-1">
+        <a href="#" class="brand-logo">Football Database Management System</a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="#">Match Fixture</a></li>
+            <li><a href="#">Top Team</a></li>
+
+            <li><a href="{{url_for('feedback')}}">Feedback</a></li>
+            <!-- Dropdown Trigger -->
+            <li><a class="dropdown-button" href="#" data-activates="dropdown1">Team Members<i
+                    class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+    </div>
 </nav>
 <div class="slider">
 
@@ -83,7 +86,7 @@
                         <ul>
                             {% for b in name_list %}
 
-                            <li><h4 style="font-style: italic;color: azure" >{{b}}</h4></li>
+                            <li><h4 style="font-style: italic;color: azure">{{b}}</h4></li>
 
 
                             {% endfor %}
@@ -134,6 +137,7 @@
                 <a href="https://github.com/aman5319/Football-project" target="_blank">
                     <img src="../static/GitHub-Mark-Light-64px.png">
                 </a>
+
             </div>
         </div>
     </div>

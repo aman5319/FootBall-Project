@@ -71,6 +71,22 @@ def editTeam(teamName):
         return redirect(url_for("teamInfo"))
 
 
+@app.route("/feedback/", methods=["GET", "POST"])
+def feedback():
+    if request.method == "POST":
+        db.feedback.insert_one(dict(
+            name=request.form.get("name", None),
+            email=request.form.get("email", None),
+            presentation=request.form.get("presentation", None),
+            idea=request.form.get("idea", None),
+            objective=request.form.get("objective", None),
+            review=request.form.get("review", None)
+        ))
+        return redirect(url_for("teamInfo"))
+    elif request.method == "GET":
+        return render_template("feedback.html")
+
+
 if __name__ == "__main__":
-    app.run()
-    #app.run(host="127.0.0.1", port=5000 , debug=True)
+    # app.run()
+    app.run(host="127.0.0.1", port=5000, debug=True)
