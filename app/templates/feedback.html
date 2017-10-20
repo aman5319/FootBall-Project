@@ -7,41 +7,101 @@
    </head>
 
 	<body>
+	<!-- Navigation Bar-->
+	
+	
+	 <nav>
+    <div class="nav-wrapper light-blue darken-3">
+      <a href="#!" class="brand-logo center">Feedback Form</a>
+      
+	   <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <!-- Modal Trigger -->
+ <li> <a class="waves-effect waves-light btn modal-trigger" href="#modal1">CANCEL</a></li>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content green accent-3">
+      <h4>Disclaimer</h4>
+      <p>This Feedback form sends the data to the developer.
+         Your feedback is necessary because it motivates the developer,
+          help us improve our performance and it is a tool for continuous learning.
+         By clicking CANCEL you are leaving of gratitude. Do you wish to Continue?
+      </p>
+    </div>
+    <div class="modal-footer">
+      <a href="index.html" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+      </ul>
+    </div>
+  </nav>
+	
+	
+	<!--form begins here-->
 	 <div class="row">
     <form class="col s12">
       <div class="row">
         <div class="input-field col s6">
           <input id="first_name" type="text" class="validate">
-          <label for="first_name">First Name</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Last Name</label>
+          <label for="first_name">Name</label>
         </div>
 		<div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s7">
           <input id="email" type="email" class="validate">
           <label for="email">Email</label>
         </div>
       </div>  
+      
+        <!--This is for radio button input-->
+	
+	   <div class="input-field col s4">
+    <select radio>
+      <option value="" selected>Choose your option</option>
+      <option value="1">Excellent</option>
+      <option value="2">Good</option>
+      <option value="3">Satisfactory</option>
+	  <option value="4">Bad</option>
+    </select>
+    <label>Presentation</label>
+        </div>
+        	
+			
+			   <div class="input-field col s4">
+    <select radio>
+      <option value="" selected>Choose your option</option>
+      <option value="1">Excellent</option>
+      <option value="2">Good</option>
+      <option value="3">Satisfactory</option>
+	  <option value="4">Bad</option>
+    </select>
+    <label>Collaboration of Ideas</label>
+        </div>
+			
+			
+			  <div class="input-field col s4">
+    <select radio>
+      <option value="" selected>Choose your option</option>
+      <option value="1">Excellent</option>
+      <option value="2">Good</option>
+      <option value="3">Satisfactory</option>
+	  <option value="4">Bad</option>
+    </select>
+    <label>Did project meet the objectives ?</label>
+        </div>			
+      </div>  
+
            <div class="row">
     <form class="col s12">
       <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s8">
           <textarea id="textarea1" class="materialize-textarea"></textarea>
           <label for="textarea1">Your Review</label>
         </div>
       </div>
     </form>
             </div>
-        	    
-				
-				
-      </div>  
 	 </div>
-	<a class="btn tooltipped" onclick="Materialize.toast('Submit Successful', 4000)" data-position="bottom" data-delay="50" data-tooltip="We are feeling lucky">SUBMIT</a>
-	 <a class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="sure?" >Cancel</a>
-	 <a class="waves-effect waves-light btn">cancel</a>
+	<a class="btn tooltipped" onclick="Materialize.toast('Submit Successful', 4000)" data-position="bottom" data-delay="50" data-tooltip="We are feeling lucky">SUBMIT<i class="material-icons right">send</i></a>
 	<!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js">
 	</script>
@@ -51,7 +111,8 @@
     $(document).ready(function () {
 	   $('.tooltipped').tooltip({delay: 50});
         $(".dropdown-button").dropdown();
-       
+		 $('select').material_select();
+        $('.modal').modal();
      });
      </script>
 
