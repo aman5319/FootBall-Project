@@ -10,49 +10,47 @@
 </head>
 <body>
 
- <div class="parallax-container">
-    <div class="parallax"><img src="https://i.pinimg.com/originals/0c/6f/b8/0c6fb8209544f7d397921765f915a44f.jpg"></div>
-  </div>
-  <div class="section white">
+<div class="parallax-container">
+    <div class="parallax"><img src="{{logo}}"></div>
+</div>
+<div class="section white">
     <div class="row container">
-      <h2 class="header">Player Details:</h2>
-      <p class="grey-text text-darken-3 lighten-3">	 
-     
-	  <table>
-        <thead>
-          <tr>
-              <th>Name</th>
-              <th>Country</th>
-              <th>Age</th>
-			  <th>Date of birth</th>
-			   <th>Number of Goals</th>
-			   <th>Player Position</th>
-			   <th>Player Cost</th>
-			   <th>Jersey Number</th>
-          </tr>
-        </thead>
+        <h2 class="header">Player Details:</h2>
+        <p class="grey-text text-darken-3 lighten-3">
 
-        <tbody>
-          <tr>
-            <td>Ronaldo</td>
-            <td>Portugal</td>
-            <td>32</td>
-			 <td>5 Feb 1985</td>
-			  <td>11</td>
-			   <td>Striker</td>
-			    <td>10000000</td>
-				 <td>7	</td>
-          </tr>
-        </tbody>
-      </table>
-	             
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Country</th>
+                <th>Age</th>
+                <th>Date of birth</th>
+                <th>Number of Goals</th>
+                <th>Player Position</th>
+                <th>Player Cost</th>
+                <th>Jersey Number</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>{{playerData['playerName']}}</td>
+                <td>{{playerData['country']}}</td>
+                <td>{{playerData['playerAge']}}</td>
+                <td>{{playerData['playerDateOfBirth']}}</td>
+                <td>{{playerData['numberOfGoals']}}</td>
+                <td>{{playerData['playerPosition']}}</td>
+                <td>{{playerData['playerCost']}}</td>
+                <td>{{playerData['jersyNum']}}</td>
+            </tr>
+            </tbody>
+        </table>
+
     </div>
-  </div>
-  <div class="parallax-container">
-    <div class="parallax"><img src="http://www.bhmpics.com/walls/cristiano_ronaldo_sitting_euro_2016-wide.jpg"></div>
-  </div>
-      
-
+</div>
+<div class="parallax-container">
+    <div class="parallax"><img src="{{playerData['playerPhoto']}}"></div>
+</div>
 
 
 <!--Import jQuery before materialize.js-->
@@ -62,10 +60,10 @@
 <script>
 
     $(document).ready(function () {
-       $('.parallax').parallax();
+        $('.parallax').parallax();
         $(".dropdown-button").dropdown();
         $('select').material_select();
-        
+
     });
 </script>
 

@@ -202,6 +202,21 @@ def deletePlayers(teamName, playerName):
         return redirect(url_for("teamPlayers", teamName=teamName))
 
 
+@app.route("/viewPlayer/<string:teamName>/<string:playerName>")
+def viewPlayer(teamName, playerName):
+    a = db.info.aggregate([
+        {"$unwind": "$players"},
+        {"$match": {"teamName": teamName, "players.playerName": playerName}},
+        {"$project": {"players": 1, "_id": 0, "teamLogo": 1}}
+    ], useCursor=False)
+    abc = ""
+    logo= ""
+    for ab in a:
+        logo=ab["teamLogo"]
+        abc = ab["players"]
+    return render_template("playerinfo.html", playerData=abc , logo=logo)
+
+
 if __name__ == "__main__":
     # app.run()
     app.run(host="127.0.0.1", port=5000, debug=True)
