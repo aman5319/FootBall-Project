@@ -37,8 +37,8 @@
             <div class="card-panel hoverable">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator"
-                             src="{{team_infor['teamLogo']}}">
+                        <a href="{{url_for('teamPlayers' , teamName=team_infor['teamName'])}}"> <img
+                                src="{{team_infor['teamLogo']}}"></a>
                     </div>
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">{{team_infor["teamName"]}}<i

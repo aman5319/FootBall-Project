@@ -110,7 +110,7 @@ def topTeam():
 
 @app.route("/team_view/<string:teamName>")
 def viewTeam(teamName):
-    a = db.info.find_one({"teamName": teamName}, {"_id": 0 })
+    a = db.info.find_one({"teamName": teamName}, {"_id": 0})
     return render_template("teaminfo.html", teamdata=a)
 
 
@@ -120,6 +120,82 @@ def deleteTeam(teamName):
         db.info.delete_one({"teamName": teamName})
         return redirect(url_for("showTeam"))
 
+
+@app.route("/teamPlayers/<string:teamName>")
+def teamPlayers(teamName):
+    a = db.info.find_one({"teamName": teamName}, {"_id": 0, "players": 1, "teamName": 1})
+    return render_template("teamplayers.html", teamPlayersData=a)
+
+
+@app.route("/addplayers/<string:teamName>", methods=["GET", "POST"])
+def addPlayers(teamName):
+    if request.method == "POST":
+        t = Team(teamName)
+        about = request.form.get("about", None)
+        if about == "" or about == " ":
+            about = "This Player is a prominent Player in " + teamName
+
+        t.insertPlayer(playername=request.form.get("playerName", None),
+                       country=request.form.get("country", None),
+                       age=request.form.get("playerAge", None),
+                       dateofbirth=request.form.get("playerDateOfBirth", None),
+                       numberofgoals=request.form.get("numberOfGoals", None),
+                       photo=request.form.get("playerPhoto", None),
+                       playerposition=request.form.get("playerPosition", None),
+                       playercost=request.form.get("playerCost", None),
+                       jerseynum=request.form.get("playerJerseyNum", 0),
+                       about=about, operation="insert" ,
+                       oldPlayerName="dsada")
+        return redirect(url_for("teamPlayers", teamName=teamName))
+    elif request.method == "GET":
+        return render_template("playerAddForm.html")
+
+
+@app.route("/editplayers/<string:teamName>/<string:playerName>", methods=["GET", "POST"])
+def editPlayers(teamName, playerName):
+    if request.method == "POST":
+        t = Team(teamName)
+        about = request.form.get("about", None)
+        if about == "" or about == " ":
+            about = "This Player is a prominent Player in " + teamName
+
+        t.insertPlayer(playername=request.form.get("playerName", None),
+                       country=request.form.get("country", None),
+                       age=request.form.get("playerAge", None),
+                       dateofbirth=request.form.get("playerDateOfBirth", None),
+                       numberofgoals=request.form.get("numberOfGoals", None),
+                       photo=request.form.get("playerPhoto", None),
+                       playerposition=request.form.get("playerPosition", None),
+                       playercost=request.form.get("playerCost", None),
+                       jerseynum=request.form.get("playerJerseyNum", 0),
+                       about=about,
+                       operation="update",
+                       oldPlayerName=playerName)
+        return redirect(url_for("teamPlayers", teamName=teamName))
+    elif request.method == "GET":
+
+        mydict = {"Goalkeeper": "Goalkeeper", "Right full back": "Right full back",
+                  "Left full back": " Left full back",
+                  "Right half back": "Right half back",
+                  "Centre half back": "Centre half back",
+                  "Left half back": "Left half back",
+                  "Outside right": "Outside right",
+                  "Inside right": "Inside right",
+                  "Centre forward": "Centre forward ",
+                  "Inside left": "Inside left",
+                  "Outside left": "Outside left"}
+        a = db.info.aggregate([
+            {"$unwind": "$players"},
+            {"$match": {"teamName": teamName, "players.playerName": playerName}},
+            {"$project": {"players": 1, "_id": 0}}
+        ], useCursor=False)
+        abc = ""
+        for ab in a:
+            abc = ab["players"]
+        return render_template("playerEditForm.html", teamPlayerData=abc, mydict=mydict, target=abc["playerPosition"])
+
+@app.route("/deleteplayers/<string:teamName>/<string:playerName>", methods=["POST"])
+def deletePlayers(teamName, playerName):
 
 if __name__ == "__main__":
     # app.run()

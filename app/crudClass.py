@@ -56,34 +56,43 @@ class Team:
                                    about=self.teamAbout)
                                })
 
+    def insertPlayer(self, playername, country, age, photo, dateofbirth, numberofgoals, playerposition, playercost,
+                     jerseynum, about, operation, oldPlayerName):
+        self.playerName = playername
+        self.country = country
+        self.age = eval(age)
+        self.jersyNum = eval(jerseynum)
+        self.photograph = photo
+        self.cost = eval(playercost)
+        self.playingPosition = playerposition
+        self.dateOfBirth = dateofbirth
+        self.numberofgoals = eval(numberofgoals)
+        self.about = about
 
-
-def insertPlayer(self):
-    self.playerName = input("enter the player name")
-    self.country = input("enter the country for which he plays")
-    self.club = input("enter the club for which he plays ")
-    self.jersyNum = eval(input("enter the jersy number"))
-    self.photograph = input("enter his photograph")
-    self.cost = eval(input("enter the cost of player in $"))
-    self.playingPosition = input("enter the player position")
-    self.dateOfBirth = input("enter his date of birth in format yyyy/mm/dd").split("/")
-    birth = datetime.datetime(year=int(self.dateOfBirth[0]), month=int(self.dateOfBirth[1]),
-                              day=int(self.dateOfBirth[2]))
-    self.brandAmbassdor = input("enter if he is brand ambassdor of any product")
-    self.contract = input("enter his contract until information date in format yyyy/mm/dd)").split("/")
-    cont = datetime.datetime(year=int(self.contract[0]), month=int(self.contract[1]), day=int(self.contract[2]))
-    self.playertype = input("enter  player type")
-    self.records = input("enter records made by him if any")
-    d = dict(playerName=self.playerName,
-             country=self.country,
-             club=self.club,
-             jersyNum=self.jersyNum,
-             photograph=self.photograph,
-             cost=self.cost,
-             playingPosition=self.playingPosition,
-             dateOfBirth=birth,
-             brandAmb=self.brandAmbassdor,
-             contract=cont,
-             records=self.records
-             )
-    db.info.update_one({"teamName": self.teamName}, {"$push": {"players": d}})
+        if operation == "insert":
+            d = dict(playerName=self.playerName,
+                     country=self.country,
+                     playerAge=self.age,
+                     jersyNum=self.jersyNum,
+                     playerPhoto=self.photograph,
+                     playerCost=self.cost,
+                     playerPosition=self.playingPosition,
+                     playerDateOfBirth=self.dateOfBirth,
+                     numberOfGoals=self.numberofgoals,
+                     about=self.about
+                     )
+            db.info.update_one({"teamName": self.teamName}, {"$push": {"players": d}})
+        elif operation == "update":
+            db.info.update_one({"teamName": self.teamName, "players.playerName": oldPlayerName},
+                               {"$set": {
+                                   "players.$.playerName": self.playerName,
+                                   "players.$.country": self.country,
+                                   "players.$.playerAge": self.age,
+                                   "players.$.jersyNum": self.jersyNum,
+                                   "players.$.playerPhoto": self.photograph,
+                                   "players.$.playerCost": self.cost,
+                                   "players.$.playerPosition": self.playingPosition,
+                                   "players.$.playerDateOfBirth": self.dateOfBirth,
+                                   "players.$.numberOfGoals": self.numberofgoals,
+                                   "players.$.about": self.about
+                               }})

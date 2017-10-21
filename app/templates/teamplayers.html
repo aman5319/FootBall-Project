@@ -1,0 +1,111 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Player Information</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+    <li><a href="https://github.com/aman5319/" target="_blank">Aman Kumar Pandey</a></li>
+    <li><a href="https://github.com/aniketsingh777/" target="_blank">Aniket Kumar Singh</a></li>
+    <li><a href="https://github.com/keepcalmncode" target="_blank">Kali Kiran Kumar K</a></li>
+    <li><a href="#" target="_blank">Maneesh V Kumar</a></li>
+</ul>
+<nav>
+    <div class="nav-wrapper green darken-1">
+        <a class="brand-logo">Football Database Management System</a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="{{url_for('matchFixture')}}">Match Fixture</a></li>
+            <li><a href="{{url_for('topTeam')}}">Top Team</a></li>
+
+            <li><a href="{{url_for('feedback')}}">Feedback</a></li>
+            <!-- Dropdown Trigger -->
+            <li><a class="dropdown-button" href="#" data-activates="dropdown1">Team Members<i
+                    class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        {% for a in teamPlayersData["players"] %}
+        <div class="col s4">
+                        <div class="card-panel hoverable">
+
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator"
+                         src="https://platform-static-files.s3.amazonaws.com/premierleague/photos/players/250x250/p20310.png">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4"><i
+                            class="material-icons right">more_vert</i>{{a["playerName"]}}</span>
+                    <a href="topTeam.html" class="waves-effect waves-teal btn-flat">View</a>
+                    <a href="{{url_for('editPlayers', teamName=teamPlayersData['teamName'], playerName=a['playerName']) }}" class="waves-effect waves-teal btn-flat">Update</a>
+                    <form action="" method="post">
+                        <input class="waves-effect waves-teal btn-flat" type="submit" value="Delete"/>
+                    </form>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">About<i
+                            class="material-icons right">close</i></span>
+                    <p>{{a["about"]}}</p>
+                </div>
+            </div>
+                        </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+
+            <div class="input-field col s10">
+                <h5 class="white-text">About Us</h5>
+                <p class="grey-text text-lighten-4">This project is a collaboration of Rendered Ideas</p>
+            </div>
+            <div class="input-field col s2">
+                <a href="https://github.com/aman5319/Football-project" target="_blank">
+                    <img src="../static/GitHub-Mark-Light-64px.png">
+                </a>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            <h5> WE ARE VERY OPPORTUNISTIC WHEN IT COMES TO OPEN SOURCE</h5>
+        </div>
+    </div>
+</footer>
+
+
+<div class="fixed-action-btn">
+    <a href="{{url_for('addPlayers' , teamName=teamPlayersData['teamName'])}}"
+       class="btn-floating btn-large waves-effect waves-light teal">
+        <i class="material-icons">add</i>
+    </a>
+</div>
+
+
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".dropdown-button").dropdown();
+        $('.slider').slider();
+    });
+</script>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</body>
+</html>

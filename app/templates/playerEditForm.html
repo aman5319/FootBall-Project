@@ -14,74 +14,73 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
     </script>
 </head>
-<body background="../static/wallpaper.jpg">
+<body background="{{url_for('static' , filename='wallpaper.jpg')}}">
 <div class="card-panel teal lighten-2 ">
-    <h4><span style="color: #f0ffff;  "> ADD A NEW PLAYER</span></h4>
+    <h4><span style="color: #f0ffff;  "> Edit {{teamPlayerData['playerName']}} Information</span></h4>
 </div>
 
 <div class="row" style="color: azure; font-size: large">
     <form class="col s12" action="" method="post" id="form">
         <div class="row">
             <div class="input-field col s4">
-                <input id="player_name" type="text" required name='playerName'>
+                <input id="player_name" type="text" required name='playerName' value="{{teamPlayerData['playerName']}}">
                 <label for="player_name">Player Name</label>
             </div>
             <div class="input-field col s4">
-                <input id="country" type="text" required name="country">
+                <input id="country" type="text" required name="country" value="{{teamPlayerData['country']}}">
                 <label for="country">Country</label>
             </div>
             <div class="input-field col s4">
-                <input id="age" type="number" required name="playerAge">
+                <input id="age" type="number" required name="playerAge" value="{{teamPlayerData['playerAge']}}">
                 <label for="age">Age</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s4">
-                <input id="player_photo" type="url" required name='playerPhoto'>
+                <input id="player_photo" type="url" required name='playerPhoto'
+                       value="{{teamPlayerData['playerPhoto']}}">
                 <label for="player_photo">Player Photograph url</label>
             </div>
             <div class="input-field col s4">
-                <input id="date_of_birth" type="text" class="datepicker" required name='playerDateOfBirth'>
+                <input id="date_of_birth" type="text" class="datepicker" required name='playerDateOfBirth'
+                       value="{{teamPlayerData['playerDateOfBirth']}}">
                 <label for="date_of_birth">Date of birth</label>
             </div>
             <div class="input-field col s4">
-                <input type="number" required name='numberOfGoals' id="goas">
+                <input type="number" required name='numberOfGoals' id="goas"
+                       value="{{teamPlayerData['numberOfGoals']}}">
                 <label for="goas">Number of Goals</label>
             </div>
 
         </div>
-
         <div class="row">
             <div class="input-field col s4">
                 <select required name="playerPosition" form="form">
-                    <option value="" selected>Choose your option</option>
-                    <option value="Goalkeeper">Goalkeeper</option>
-                    <option value="Right full back">Right full back</option>
-                    <option value="Left full back">Left full back</option>
-                    <option value="Right half back">Right half back</option>
-                    <option value="Centre half back">Centre half back</option>
-                    <option value="Left half back">Left half back</option>
-                    <option value="Outside right">Outside right</option>
-                    <option value="Inside right">Inside right</option>
-                    <option value="Centre forward">Centre forward</option>
-                    <option value="Inside left">Inside left</option>
-                    <option value="Outside left">Outside left</option>
+                    {% for key, value in mydict.items() %}
+                    <option value="{{key}}"
+                            {% if (key == target) %} selected="selected" {% endif %}
+                    >
+                        {{value}}
+                    </option>
+                    {% endfor %}
                 </select>
                 <label>Player Position </label>
             </div>
             <div class="input-field col s4">
-                <input type="number" required name='playerCost' id="player_cost">
+                <input type="number" required name='playerCost' id="player_cost"
+                       value="{{teamPlayerData['playerCost']}}">
                 <label for="player_cost">Player Cost</label>
             </div>
             <div class="input-field col s4">
-                <input id="player_jersey_num" type="number" required name="playerJerseyNum">
+                <input id="player_jersey_num" type="number" required name="playerJerseyNum"
+                       value="{{teamPlayerData['jersyNum']}}">
                 <label for="player_jersey_num">Jersey Number</label>
             </div>
 
         </div>
         <div class="row">
             <div class="input-field col s7">
-                <input type="text"  name='about' id="player_about">
+                <input type="text" name='about' id="player_about" value="{{teamPlayerData['about']}}">
                 <label for="player_about">Player About</label>
             </div>
         </div>
