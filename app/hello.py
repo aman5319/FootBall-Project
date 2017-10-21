@@ -35,6 +35,10 @@ def showTeam():
 def addTeam():
     if request.method == 'POST':
         t = Team(request.form["teamName"])
+        about = request.form.get("teamAbout", None)
+        if about == "" or about == " ":
+            about = "This team is prominent team in league"
+
         t.insert_team(teamLogo=request.form.get("teamLogo", None),
                       squadpic=request.form.get("squadPic", None),
                       founded=request.form.get("founded", None),
@@ -45,7 +49,7 @@ def addTeam():
                       teamcoach=request.form.get("teamCoach", None),
                       sponser=request.form.get("teamSponsor", None),
                       country=request.form.get("country", None),
-                      about=request.form.get("teamAbout", "This team is prominent team in league"),
+                      about=about,
                       operation="insert")
         return redirect(url_for("showTeam"))
     else:
@@ -59,6 +63,9 @@ def editTeam(teamName):
         return render_template("teamEditForm.html", teamInfo=a)
     elif request.method == "POST":
         t = Team(teamName)
+        about = request.form.get("teamAbout", None)
+        if about == "" or about == " ":
+            about = "This team is prominent team in league"
         t.insert_team(teamLogo=request.form.get("teamLogo", None),
                       squadpic=request.form.get("squadPic", None),
                       founded=request.form.get("founded", None),
@@ -69,8 +76,9 @@ def editTeam(teamName):
                       teamcoach=request.form.get("teamCoach", None),
                       sponser=request.form.get("teamSponsor", None),
                       country=request.form.get("country", None),
-                      about=request.form.get("teamAbout", "This team is prominent team in league"),
+                      about=about,
                       operation="update")
+        print(request.form)
         return redirect(url_for("showTeam"))
 
 
@@ -102,6 +110,7 @@ def topTeam():
 
 @app.route("/team_view/<string:teamName>")
 def viewTeam(teamName):
+    a = db.info.find_one({"teamName": teamName}, {"_id": 0, })
     return render_template("teaminfo.html")
 
 
