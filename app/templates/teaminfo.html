@@ -8,92 +8,85 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>
+<body text="#5c6566">
 
- <div class="parallax-container">
-    <div class="parallax"><img src="https://wallpaperscraft.com/image/barcelona_spain_football_club_sports_logo_25996_800x600.jpg"></div>
-  </div>
-  <div class="section white">
+<div class="parallax-container">
+    <div class="parallax"><img src="{{teamdata['teamLogo']}}"></div>
+</div>
+<div class="section white">
     <div class="row container">
-      <h2 class="header">Liverpool</h2>
-      <p class="grey-text text-darken-3 lighten-3">	
-	  
-	    <div class="row">
+        <h3 class="header" style="color: #226997">{{teamdata["teamName"]}}</h3>
+        <p class="grey-text text-darken-3 lighten-3">
 
-      <div class="col s6">
-        
-          	  
-     <div> Ground : Anfield</div>
-     <div> Manager : Jurgen Klopp</div>
-      <div>Year Formed : 1892</div>
-      <div>Chairman : John W Henry.</div>
-	  <div>Team Value : $1,492 M </div>
-	  <div>Website : www.liverpoolfc.tv </div>
-	  <div>Country: England</div>
-	  <div>Sponsor : Standard Chartered</div>
-	  <div>Team Coach : Jürgen Klopp</div>
-	  
-      </div>
+        <div class="row">
 
-      <div class="col s6">
-        <h4>About</h4>
-		Liverpool Football Club is a professional association football club based in Liverpool, Merseyside, England. 
-		They compete in the Premier League, the top tier of English football.
-      </div>
+            <div class="col s6">
 
+                <div><h5>Home Ground : {{teamdata["homeGround"]}}</h5></div>
+                <div><h5>Country     : {{teamdata["country"]}}</h5></div>
+                <div><h5>Owner       : {{teamdata["teamOwner"]}}</h5></div>
+                <div><h5>Founded On  : {{teamdata["founded"]}}</h5></div>
+                <div><h5>Coach       : {{teamdata["teamCoach"]}}</h5></div>
+                <div><h5>Team Value  : ${{teamdata["teamCost"]}}</h5></div>
+                <div><h5>Sponsor     : {{teamdata["teamSponsor"]}}</h5></div>
+                <div><h5>Website     : {{teamdata["teamWebsite"]}}</h5></div>
+
+            </div>
+
+            <div class="col s6">
+                <h4>About</h4>
+                <h5>{{teamdata["about"]}}</h5>
+            </div>
+
+        </div>
+
+
+        </p>
+        <h4 class="header" style="color: #226997">{{teamdata["teamName"]}} Player Information</h4>
+        <table>
+            <thead>
+            <tr>
+                Fake data
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>Simon Mignolet</td>
+
+            </tr>
+            <tr>
+
+                <td>James Milner</td>
+
+            </tr>
+            <tr>
+
+                <td>Philippe Coutinho</td>
+
+            </tr>
+            <tr>
+
+                <td>Sadio Mané</td>
+
+            </tr>
+            <tr>
+
+                <td>Roberto Firmino</td>
+
+            </tr>
+            <tr>
+
+                <td>Mohamed Salah</td>
+
+            </tr>
+            </tbody>
+        </table>
     </div>
-          
-  
-	  </p>
-	       <h2 class="header">Liverpool Team Information</h2>
-              <table>
-                        <thead>
-                        <tr>
-                           
-                            <th>Player Name</th>
-
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                     	<tr>				  					  				
-                            <td>Simon Mignolet</td>
-
-                        </tr>
-                        <tr>
-                           
-                            <td>James Milner</td>
-
-                        </tr>
-                        <tr>
-                            
-                            <td>Philippe Coutinho</td>
-
-                        </tr>
-                        <tr>
-                            
-                            <td>Sadio Mané</td>
-
-                        </tr>
-                        <tr>
-                            
-                            <td>Roberto Firmino</td>
-
-                        </tr>
-                        <tr>
-                          
-                            <td>Mohamed Salah</td>
-
-                        </tr>
-                        </tbody>
-                </table>
-    </div>
-  </div>
-  <div class="parallax-container">
-    <div class="parallax"><img src="http://assets.lfcimages.com/uploads/downloads/5632__4804__team_1440x900.jpg"></div>
-  </div>
-      
-
+</div>
+<div class="parallax-container">
+    <div class="parallax"><img src="{{teamdata['squadPic']}}"></div>
+</div>
 
 
 <!--Import jQuery before materialize.js-->
@@ -103,10 +96,10 @@
 <script>
 
     $(document).ready(function () {
-       $('.parallax').parallax();
+        $('.parallax').parallax();
         $(".dropdown-button").dropdown();
         $('select').material_select();
-        
+
     });
 </script>
 

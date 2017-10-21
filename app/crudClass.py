@@ -57,15 +57,6 @@ class Team:
                                })
 
 
-def wantToinsertPlayers(self):
-    yes_no = input("want to insert players now press y for yes ,n for no")
-    if yes_no.lower() != "y":
-        print("you can insert later")
-    else:
-        while yes_no.lower() == "y":
-            self.insertPlayer()
-            yes_no = input("want to insert more players press y for yes ,n for no")
-
 
 def insertPlayer(self):
     self.playerName = input("enter the player name")

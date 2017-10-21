@@ -110,8 +110,8 @@ def topTeam():
 
 @app.route("/team_view/<string:teamName>")
 def viewTeam(teamName):
-    a = db.info.find_one({"teamName": teamName}, {"_id": 0, })
-    return render_template("teaminfo.html")
+    a = db.info.find_one({"teamName": teamName}, {"_id": 0 })
+    return render_template("teaminfo.html", teamdata=a)
 
 
 @app.route("/team_delete/<string:teamName>", methods=["POST"])
