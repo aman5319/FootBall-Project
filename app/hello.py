@@ -98,6 +98,11 @@ def feedback():
         return render_template("feedback.html")
 
 
+@app.route("/showfeedBack/")
+def showFeedback():
+    return render_template("feedbackshow.html", feedback=db.feedback.find({}))
+
+
 @app.route("/matchFixture", methods=["GET", "POST"])
 def matchFixture():
     return render_template("matchFixture.html")
@@ -210,11 +215,11 @@ def viewPlayer(teamName, playerName):
         {"$project": {"players": 1, "_id": 0, "teamLogo": 1}}
     ], useCursor=False)
     abc = ""
-    logo= ""
+    logo = ""
     for ab in a:
-        logo=ab["teamLogo"]
+        logo = ab["teamLogo"]
         abc = ab["players"]
-    return render_template("playerinfo.html", playerData=abc , logo=logo)
+    return render_template("playerinfo.html", playerData=abc, logo=logo)
 
 
 if __name__ == "__main__":

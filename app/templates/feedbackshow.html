@@ -10,22 +10,22 @@
 </head>
 <body>
 
-
+{% for feed in feedback %}
 <ul class="collection">
-<li class="collection-item avatar">
-      <i class="material-icons circle">mood</i>
-      <span class="title">Name</span>
-      <ul>
-         <li>Email</li>
-         <li>Presentation</li>
-         <li>collaboration of ideas</li>
-         <li>Did project meet the objectives ?</li>
-		 <li>Suggestions</li>
-      </ul>
-     </li>
-	</ul>
+    <li class="collection-item avatar">
+        <i class="material-icons circle">mood</i>
+        <span class="title">Name :- {{feed['name']}}</span>
+        <ul>
+            <li>Email :- {{feed['email']}}</li>
+            <li>Presentation :- {{feed['presentation']}}</li>
+            <li>collaboration of ideas :- {{feed['idea']}}</li>
+            <li>project objectives  :- {{feed['objective']}}</li>
+            <li>Suggestions :- {{feed['review']}}</li>
+        </ul>
+    </li>
+</ul>
 
-
+{% endfor %}
 
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
