@@ -46,17 +46,15 @@
         <table>
             <thead>
             <tr>
-                Fake data
             </tr>
             </thead>
 
             <tbody>
-            <!-- for loop populate-->
+            {% for x in teamdata["players"] %}
             <tr>
-                <td>Simon Mignolet</td>
+                <td><h5>{{x["playerName"]}}</h5></td>
             </tr>
-            <!-- end for loop -->
-
+            {% endfor %}
             </tbody>
         </table>
     </div>

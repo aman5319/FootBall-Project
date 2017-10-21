@@ -47,7 +47,7 @@
                             class="material-icons right">more_vert</i>{{a["playerName"]}}</span>
                     <a href="topTeam.html" class="waves-effect waves-teal btn-flat">View</a>
                     <a href="{{url_for('editPlayers', teamName=teamPlayersData['teamName'], playerName=a['playerName']) }}" class="waves-effect waves-teal btn-flat">Update</a>
-                    <form action="" method="post">
+                    <form action="{{url_for('deletePlayers' , teamName=teamPlayersData['teamName'] , playerName=a['playerName'])}}" method="post">
                         <input class="waves-effect waves-teal btn-flat" type="submit" value="Delete"/>
                     </form>
                 </div>

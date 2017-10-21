@@ -144,7 +144,7 @@ def addPlayers(teamName):
                        playerposition=request.form.get("playerPosition", None),
                        playercost=request.form.get("playerCost", None),
                        jerseynum=request.form.get("playerJerseyNum", 0),
-                       about=about, operation="insert" ,
+                       about=about, operation="insert",
                        oldPlayerName="dsada")
         return redirect(url_for("teamPlayers", teamName=teamName))
     elif request.method == "GET":
@@ -194,8 +194,13 @@ def editPlayers(teamName, playerName):
             abc = ab["players"]
         return render_template("playerEditForm.html", teamPlayerData=abc, mydict=mydict, target=abc["playerPosition"])
 
+
 @app.route("/deleteplayers/<string:teamName>/<string:playerName>", methods=["POST"])
 def deletePlayers(teamName, playerName):
+    if request.method == "POST":
+        db.info.update_one({"teamName": teamName}, {"$pull": {"players": {"playerName": playerName}}})
+        return redirect(url_for("teamPlayers", teamName=teamName))
+
 
 if __name__ == "__main__":
     # app.run()
