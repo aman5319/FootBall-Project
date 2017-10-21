@@ -45,6 +45,7 @@ def addTeam():
                       teamcoach=request.form.get("teamCoach", None),
                       sponser=request.form.get("teamSponsor", None),
                       country=request.form.get("country", None),
+                      about=request.form.get("teamAbout", "This team is prominent team in league"),
                       operation="insert")
         return redirect(url_for("showTeam"))
     else:
@@ -68,6 +69,7 @@ def editTeam(teamName):
                       teamcoach=request.form.get("teamCoach", None),
                       sponser=request.form.get("teamSponsor", None),
                       country=request.form.get("country", None),
+                      about=request.form.get("teamAbout", "This team is prominent team in league"),
                       operation="update")
         return redirect(url_for("showTeam"))
 

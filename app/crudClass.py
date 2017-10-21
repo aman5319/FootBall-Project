@@ -11,7 +11,7 @@ class Team:
         self.teamName = teamName1
 
     def insert_team(self, teamLogo, country, squadpic, founded, homeground, teamcost, teamowner, sponser, teamcoach,
-                    teamWebsite, operation):
+                    teamWebsite,about, operation):
         self.teamLogo = teamLogo
         self.country = country
         self.squadpic = squadpic
@@ -22,6 +22,7 @@ class Team:
         self.sponser = sponser
         self.teamcoach = teamcoach
         self.teamWebsite = teamWebsite
+        self.about = about
 
         if operation == "insert":
             db.info.insert_one(dict(
@@ -35,7 +36,8 @@ class Team:
                 teamOwner=self.teamowner,
                 teamSponsor=self.sponser,
                 teamCoach=self.teamcoach,
-                teamWebsite=self.teamWebsite
+                teamWebsite=self.teamWebsite,
+                about=self.about
             ))
         elif operation == "update":
             db.info.update_one({"teamName": {"$eq": self.teamName}},

@@ -20,7 +20,7 @@
 </div>
 
 <div class="row" style="color: azure; font-size: large">
-    <form class="col s12" action="" method="post">
+    <form class="col s12" action="" method="post" id="form">
         <div class="row">
             <div class="input-field col s5">
                 <input id="team_name" type="text" required name='teamName' placeholder="(Cannot be Edited Later)">
@@ -76,7 +76,12 @@
                 <input id="country" type="text" required name='country'>
                 <label for="country">Country</label>
             </div>
+            <div class="input-field col s6">
+                <input id="team_about" type="text" name='teamAbout'>
+                <label for="team_about">About</label>
+            </div>
         </div>
+
 
         <input type="submit" value=" Submit "
                style="font-size:20pt;margin-left: 45%;
@@ -85,13 +90,13 @@ background-color:teal;padding:5px ;text-align: center">
 </div>
 <script>
     $('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 400, // Creates a dropdown of 15 years to control year,
-    today: 'Today',
-    clear: 'Clear',
-    close: 'Ok',
-    closeOnSelect: false // Close upon selecting a date,
-  });
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 400, // Creates a dropdown of 15 years to control year,
+        today: 'Today',
+        clear: 'Clear',
+        close: 'Ok',
+        closeOnSelect: false // Close upon selecting a date,
+    });
 </script>
 </body>
 </html>
