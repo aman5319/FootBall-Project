@@ -27,7 +27,8 @@ def teamInfo():
 
 @app.route("/showTeam/")
 def showTeam():
-    return render_template("allTeam.html")
+    a = db.info.find({}, {"players": 0, "_id": 0, "leagues": 0})
+    return render_template("allTeam.html", teamInformation=a)
 
 
 @app.route("/addTeam/", methods=["POST", "GET"])
@@ -45,7 +46,7 @@ def addTeam():
                       sponser=request.form.get("teamSponsor", None),
                       country=request.form.get("country", None),
                       operation="insert")
-        return redirect(url_for("teamInfo"))
+        return redirect(url_for("showTeam"))
     else:
         return render_template("teamAddForm.html")
 
@@ -68,7 +69,7 @@ def editTeam(teamName):
                       sponser=request.form.get("teamSponsor", None),
                       country=request.form.get("country", None),
                       operation="update")
-        return redirect(url_for("teamInfo"))
+        return redirect(url_for("showTeam"))
 
 
 @app.route("/feedback/", methods=["GET", "POST"])
@@ -95,6 +96,18 @@ def matchFixture():
 @app.route("/topTeam")
 def topTeam():
     return render_template("topTeam.html")
+
+
+@app.route("/team_view/<string:teamName>")
+def viewTeam(teamName):
+    return render_template("teaminfo.html")
+
+
+@app.route("/team_delete/<string:teamName>", methods=["POST"])
+def deleteTeam(teamName):
+    if request.method == "POST":
+        db.info.delete_one({"teamName": teamName})
+        return redirect(url_for("showTeam"))
 
 
 if __name__ == "__main__":
