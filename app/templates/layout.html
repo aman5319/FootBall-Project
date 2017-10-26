@@ -8,6 +8,7 @@
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
@@ -25,11 +26,17 @@
     <li><a href="{{url_for('topTeam')}}">Match Result</a></li>
 </ul>
 <nav>
+
     <div class="nav-wrapper green darken-1">
         <a href="{{url_for('teamInfo')}}" class="brand-logo">Football Database Management System</a>
+
         <ul class="right hide-on-med-and-down">
 
-
+            <li>
+                <form>
+                    <input type="text" id="autocomplete-input" class="autocomplete" placeholder="Player Search">
+                </form>
+            </li>
             <li><a href="{{url_for('feedback')}}">Feedback</a></li>
             <li><a class="dropdown-button" data-activates="dropdown2">Match Related<i
                     class="material-icons right">arrow_drop_down</i></a></li>
@@ -37,9 +44,9 @@
             <li><a class="dropdown-button" data-activates="dropdown1">Team Members<i
                     class="material-icons right">arrow_drop_down</i></a></li>
         </ul>
+
     </div>
 </nav>
-
 {% block content %}{% endblock %}
 <br>
 <footer class="page-footer">
@@ -68,7 +75,6 @@
 
 <!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
 <script>
 
     $(document).ready(function () {
@@ -76,8 +82,19 @@
         $('.slider').slider();
     });
 </script>
-
-<!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+<script>
+    $(function () {
+        $('input.autocomplete').autocomplete({
+            data: {
+                "Apple": null,
+                "Microsoft": null,
+                "Google": null
+            }
+        });
+    });
+</script>
+<!-- Compiled and minified JavaScript -->
 </body>
 </html>
