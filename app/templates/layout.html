@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
+
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
     <li><a href="https://github.com/aman5319/" target="_blank">Aman Kumar Pandey</a></li>
@@ -33,8 +34,10 @@
         <ul class="right hide-on-med-and-down">
 
             <li>
-                <form>
-                    <input type="text" id="autocomplete-input" class="autocomplete" placeholder="Player Search">
+                {% block datalist %}
+                {% endblock %}
+                <form action=""  method="post">
+                    <input type=search list="languages" placeholder="Player Search" name="searchBox">
                 </form>
             </li>
             <li><a href="{{url_for('feedback')}}">Feedback</a></li>
@@ -83,18 +86,6 @@
     });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
-<script>
-    $(function () {
-        $('input.autocomplete').autocomplete({
-            data: {
-                "Apple": null,
-                "Microsoft": null,
-                "Google": null
-            }
-        });
-    });
-</script>
 <!-- Compiled and minified JavaScript -->
 </body>
 </html>

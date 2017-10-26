@@ -15,14 +15,33 @@ def hello():
     return " depoyer"
 
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def teamInfo():
     list_of_all_team = []
-    list_of_all_team.clear()
-    a = db.info.find({}, {"_id": 0, "teamName": 1})
+    list_of_all_players = []
+    dicti = {}
+    a = db.info.find({}, {"_id": 0, "teamName": 1, "players.playerName": 1})
     for b in a:
+        abc = b["teamName"]
         list_of_all_team.append(b["teamName"])
-    return render_template("index.html", name_list=list_of_all_team)
+        list_of_all_players = list_of_all_players[:]
+        list_of_all_players.clear()
+        if b.__contains__("players"):
+            for c in b["players"]:
+                list_of_all_players.append(c["playerName"])
+                dicti[abc] = list_of_all_players
+
+    if request.method == "GET":
+        return render_template("index.html", name_list=list_of_all_team,
+                               player_list=[x for (k, v) in dicti.items() for x in v])
+    elif request.method == "POST":
+        print(dicti)
+        playerName = request.form.get("searchBox")
+        teamName = ""
+        for (k, v) in dicti.items():
+            if playerName in v:
+                teamName = k
+        return redirect(url_for("viewPlayer", teamName=teamName, playerName=playerName))
 
 
 @app.route("/showTeam/")
@@ -180,7 +199,7 @@ def editPlayers(teamName, playerName):
     elif request.method == "GET":
 
         mydict = {"Goalkeeper": "Goalkeeper",
- "Right full back": "Right full back",
+                  "Right full back": "Right full back",
                   "Left full back": " Left full back",
                   "Right half back": "Right half back",
                   "Centre half back": "Centre half back",

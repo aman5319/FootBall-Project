@@ -59,7 +59,6 @@
 
                             <li><h4 style="font-style: italic;color: azure">{{b}}</h4></li>
 
-
                             {% endfor %}
                         </ul>
                     </div>
@@ -90,6 +89,16 @@
         </div>
     </div>
 </div>
+{% block datalist %}
+<datalist id="languages">
 
+    {% for b in player_list %}
+
+    <option value="{{b}}">
+
+        {% endfor %}
+
+</datalist>
+{% endblock %}
 {% endblock %}
 
