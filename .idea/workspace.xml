@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01b69f3f-2e6d-4924-a8ce-677fa61e3c9b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/teaminfo.html" afterPath="$PROJECT_DIR$/app/templates/teaminfo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/playerEditForm.html" afterPath="$PROJECT_DIR$/app/templates/playerEditForm.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -52,11 +51,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="teaminfo.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="teaminfo.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/teaminfo.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="387">
               <caret line="57" column="41" lean-forward="false" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="playerEditForm.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/templates/playerEditForm.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="66" column="18" lean-forward="false" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -149,13 +158,13 @@
         <option value="$PROJECT_DIR$/app/templates/teamplayers.html" />
         <option value="$APPLICATION_CONFIG_DIR$/javascript/extLibs/http_cdnjs.cloudflare.com_ajax_libs_materialize_0.100.2_js_materialize.js" />
         <option value="$PROJECT_DIR$/app/templates/teamEditForm.html" />
-        <option value="$PROJECT_DIR$/app/templates/playerEditForm.html" />
         <option value="$PROJECT_DIR$/app/templates/allTeam.html" />
         <option value="$PROJECT_DIR$/app/hello.py" />
         <option value="$PROJECT_DIR$/app/templates/playerAddForm.html" />
         <option value="$PROJECT_DIR$/app/templates/index.html" />
         <option value="$PROJECT_DIR$/app/templates/layout.html" />
         <option value="$PROJECT_DIR$/app/templates/teaminfo.html" />
+        <option value="$PROJECT_DIR$/app/templates/playerEditForm.html" />
       </list>
     </option>
   </component>
@@ -616,14 +625,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/playerEditForm.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-666">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/playerAddForm.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
@@ -670,6 +671,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="387">
           <caret line="57" column="41" lean-forward="false" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/playerEditForm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="66" column="18" lean-forward="false" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
           <folding />
         </state>
       </provider>
