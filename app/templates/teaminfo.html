@@ -13,7 +13,7 @@
 <div class="parallax-container">
     <div class="parallax"><img src="{{teamdata['teamLogo']}}"></div>
 </div>
-<div class="section white">
+<td class="section white">
     <div class="row container">
         <h3 class="header" style="color: #226997">{{teamdata["teamName"]}}</h3>
         <p class="grey-text text-darken-3 lighten-3">
@@ -53,34 +53,40 @@
             {% for x in teamdata["players"] %}
             <tr>
                 <td><h5>{{x["playerName"]}}</h5></td>
+                <td>
+                    <div class="chip">
+                        {{x["jersyNum"]}}
+                    </div>
+                </td>
+
             </tr>
             {% endfor %}
             </tbody>
         </table>
     </div>
-</div>
-<div class="parallax-container">
-    <div class="parallax"><img src="{{teamdata['squadPic']}}"></div>
-</div>
+    </div>
+    <div class="parallax-container">
+        <div class="parallax"><img src="{{teamdata['squadPic']}}"></div>
+    </div>
 
 
-<!--Import jQuery before materialize.js-->
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js">
-</script>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js">
+    </script>
 
-<script>
+    <script>
 
-    $(document).ready(function () {
-        $('.parallax').parallax();
-        $(".dropdown-button").dropdown();
-        $('select').material_select();
+        $(document).ready(function () {
+            $('.parallax').parallax();
+            $(".dropdown-button").dropdown();
+            $('select').material_select();
 
-    });
-</script>
+        });
+    </script>
 
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
-</script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
+    </script>
 
 </body>
 </html>
