@@ -179,16 +179,12 @@ def editPlayers(teamName, playerName):
         return redirect(url_for("teamPlayers", teamName=teamName))
     elif request.method == "GET":
 
-        mydict = {"Goalkeeper": "Goalkeeper", "Right full back": "Right full back",
+        mydict = {"Goalkeeper": "Goalkeeper",
+ "Right full back": "Right full back",
                   "Left full back": " Left full back",
                   "Right half back": "Right half back",
                   "Centre half back": "Centre half back",
-                  "Left half back": "Left half back",
-                  "Outside right": "Outside right",
-                  "Inside right": "Inside right",
-                  "Centre forward": "Centre forward ",
-                  "Inside left": "Inside left",
-                  "Outside left": "Outside left"}
+                  "Left half back": "Left half back"}
         a = db.info.aggregate([
             {"$unwind": "$players"},
             {"$match": {"teamName": teamName, "players.playerName": playerName}},
